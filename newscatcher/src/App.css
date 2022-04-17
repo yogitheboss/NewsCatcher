@@ -2,3 +2,9 @@ img{
   width: 10rem;
   height: 15rem;
 }
+.infinite-scroll-component {
+  overflow: hidden !important;
+}
+.headings{
+  margin-top: 100px;
+}
