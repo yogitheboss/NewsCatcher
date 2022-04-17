@@ -33,15 +33,20 @@ export default class News extends Component {
     )}-NewsCatcher `;
   }
   async updatePage() {
+    this.props.setProgress(10)
     const url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=55c7e6a22d60449892bca4b70dca2cb6&pageSize=${this.props.pageSize}&page=${this.state.page}`;
-    
+    this.props.setProgress(40)
     let data = await fetch(url);
     let parseData = await data.json();
+    this.props.setProgress(70)
     this.setState({
       articles: parseData.articles,
       totalResults: parseData.totalResults,
       loading: false,
     });
+
+
+    this.props.setProgress(100)
   }
 
   fetchMoreData = async () => {
